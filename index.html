@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SchoolAuthApp</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <form id="Login-form">
+          <h1>SchoolAuthApp</h1>
+          <h2>Login</h2>
+          <input
+            type="email"
+            id="login-email"
+            placeholder="Email"
+            required
+          /><br />
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Password"
+            required
+          /><br />
+          <button type="submit">Log In</button>
+          <p><a href="forgot.html">Forgot Password?</a></p>
+          <p>
+            Don't have an account? <a href="./Signup.html">Create an account</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./auth.js" type="module"></script>
+  </body>
 </html>
+
+const supabase = createClient(
+  `https://wudmezmxdnwzfpppjmzw.supabase.co`,
+  `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1ZG1lem14ZG53emZwcHBqbXp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1MDE2NjMsImV4cCI6MjA2ODA3NzY2M30.oOIXvvMThJjjwDVosngEhvhzLIB6hfYkwhiqxi9marY`
+);
