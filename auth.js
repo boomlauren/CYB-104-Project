@@ -8,6 +8,7 @@ async function signUp(email, password) {
     email: email,
     password: password,
   });
+ 
 
   if (error) {
     alert("Error signing up: " + error.message);
@@ -30,12 +31,12 @@ async function signIn(email, password) {
   } else {
     alert("Logged in successfully!");
     console.log("User signed in:", data);
-    window.location.href = "welcome.html"; // Redirect to welcome page after login
+    window.location.href = "welcome.html "; // Redirect to welcome page after login
   }
 }
 async function forgotPassword(email) {
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "http://127.0.0.1:5500/reset.html",
+    redirectTo:  window.location.origin + '/reset.html',
   });
   // RedirectTo is set to the reset-password.html page in the current origin
   // This allows the user to reset their password after clicking the link in the email
