@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     //Password reset form
-    const resetEmailForm = document.getElementById('forgotForm');
+    const resetEmailForm = document.getElementById('forgotform');
     if (resetEmailForm) {
         resetEmailForm.addEventListener('submit', async (e) => {
             e.preventDefault();
