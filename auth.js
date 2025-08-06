@@ -13,7 +13,7 @@ async function signUp(email, password) {
         alert("Account created successfully!");
         window.location.href = "index.html"; // Redirect to welcome page
     } catch (error) {
-        alert("Error creating account: " + error.message);
+        showCustomAlert("Error creating account: " + error.message);
     }
 }
 // Function to handle user login
@@ -23,7 +23,7 @@ async function signIn(email, password) {
         alert("Login successful!");
         window.location.href = "welcome.html"; // Redirect to welcome page
     } catch (error) {
-        alert("Error logging in: " + error.message);
+        showCustomAlert("Error logging in: " + error.message);
     }
 }
 // Function to handle password reset
@@ -32,7 +32,7 @@ async function resetPassword(email) {
         await sendPasswordResetEmail(auth, email);
         alert("Password reset email sent!");
     } catch (error) {
-        alert("Error sending password reset email: " + error.message);
+        showCustomAlert("Error sending password reset email: " + error.message);
     }
 }
 
@@ -41,9 +41,25 @@ async function createNewPassword (oobCode, newPassword) {
         await confirmPasswordReset(auth, oobCode, newPassword);
         alert("Password has been reset successfully!");
     } catch (error) {
-        alert("Error resetting password: " + error.message);    
+        showCustomAlert("Error resetting password: " + error.message);    
     }
 }
+// New function to show the custom alert
+function showCustomAlert(message) {
+    const alertContainer = document.getElementById('custom-alert-container');
+    const alertMessage = document.getElementById('custom-alert-message');
+    const closeButton = document.getElementById('custom-alert-close');
+
+    if (alertContainer && alertMessage) {
+        alertMessage.textContent = message;
+        alertContainer.classList.add('visible');
+
+        closeButton.onclick = () => {
+            alertContainer.classList.remove('visible');
+        };
+    }
+}
+
 //Event listeners for the functions
 document.addEventListener('DOMContentLoaded', () => {
     //sign Up form
