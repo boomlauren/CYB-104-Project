@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resetEmailForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById("forgot-email").value;
-            await sendresetEmail(email);
+            await resetPassword(email);
         });
     }
     //New password form
