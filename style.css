@@ -27,7 +27,7 @@
   /* text-align: center; */
   font-size: 2rem;
 }
-#Login-form input {
+#login-form input {
   width: 100%;
   padding: 8px;
   margin: 5px 0;
@@ -37,7 +37,7 @@
   background: transparent;
   font-size: 1rem;
 }
-#Login-form button {
+#login-form button {
   width: 100%;
   padding: 10px;
   background-color: #fffafa;
@@ -47,21 +47,21 @@
   font-size: 1rem;
     margin-top: 10px;
 }
-#Login-form button:hover {
+#login-form button:hover {
   background-color: #000;
   color: #fffafa;
 }
-#Login-form p {
+#login-form p {
   color: #fffafa;
   text-align: center;
     margin-top: 10px;
 }
-#Login-form a {
+#login-form a {
   color: #fffafa;
   text-decoration: none;
   margin-top: 15px;
 }
-#Login-form a:hover {
+#login-form a:hover {
   text-decoration: underline;
 }
 
