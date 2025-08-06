@@ -11,6 +11,7 @@ async function signUp(email, password) {
     try {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("Account created successfully!");
+        window.location.href = "index.html"; // Redirect to welcome page
     } catch (error) {
         alert("Error creating account: " + error.message);
     }
@@ -44,7 +45,7 @@ async function createNewPassword (oobCode, newPassword) {
     }
 }
 //Event listeners for the functions
-document.addEventListener(DOMContentLoaded, () => {
+document.addEventListener('DOMContentLoaded', () => {
     //sign Up form
     const signupForm = document.getElementById("signup-form");
     if (signupForm) {
