@@ -10,7 +10,7 @@ import { auth } from "./firebaseConfig.js";
 async function signUp(email, password) {
     try {
         await createUserWithEmailAndPassword(auth, email, password);
-        alert("Account created successfully!");
+        showCustomAlert("Account created successfully!");
         window.location.href = "index.html"; // Redirect to welcome page
     } catch (error) {
         showCustomAlert("Error creating account: " + error.message);
@@ -20,7 +20,7 @@ async function signUp(email, password) {
 async function signIn(email, password) {
     try {
         await signInWithEmailAndPassword(auth, email, password);
-        alert("Login successful!");
+        showCustomAlert("Login successful!");
         window.location.href = "welcome.html"; // Redirect to welcome page
     } catch (error) {
         showCustomAlert("Error logging in: " + error.message);
@@ -30,7 +30,7 @@ async function signIn(email, password) {
 async function resetPassword(email) {
     try {
         await sendPasswordResetEmail(auth, email);
-        alert("Password reset email sent!");
+        showCustomAlert("Password reset email sent!");
     } catch (error) {
         showCustomAlert("Error sending password reset email: " + error.message);
     }
@@ -39,18 +39,29 @@ async function resetPassword(email) {
 async function createNewPassword (oobCode, newPassword) {
     try {
         await confirmPasswordReset(auth, oobCode, newPassword);
-        alert("Password has been reset successfully!");
+        showCustomAlert("Password has been reset successfully!");
     } catch (error) {
         showCustomAlert("Error resetting password: " + error.message);    
     }
 }
 // New function to show the custom alert
-function showCustomAlert(message) {
+function showCustomAlert(message, type) {
     const alertContainer = document.getElementById('custom-alert-container');
+    const alertContent = document.getElementById('custom-alert-content');
     const alertMessage = document.getElementById('custom-alert-message');
     const closeButton = document.getElementById('custom-alert-close');
 
-    if (alertContainer && alertMessage) {
+    if (alertContainer && alertContent && alertMessage) {
+        // First, reset any existing color classes
+        alertContent.classList.remove('success-alert', 'error-alert');
+
+        // Then, add the correct class based on the type
+        if (type === 'success') {
+            alertContent.classList.add('success-alert');
+        } else if (type === 'error') {
+            alertContent.classList.add('error-alert');
+        }
+        
         alertMessage.textContent = message;
         alertContainer.classList.add('visible');
 
